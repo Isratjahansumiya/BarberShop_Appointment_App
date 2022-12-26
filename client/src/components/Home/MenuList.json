@@ -1,0 +1,77 @@
+{
+   "allServices":[
+    {
+      "_id":1,
+      "serviceName": "HAIRDRESSING",
+      "description": "HAIRCUT, INCLUDING WASHING AND FINISHING",
+      "price":"30"
+    },
+    {
+      "_id":2,
+      "serviceName": "MODEL CHANGE SURGERY",
+       "description": "MODEL CHANGE CUT, INCLUDING WASHING AND FINISHING",
+      "price":"40"
+
+    },
+    {
+      "_id":3,
+      "serviceName": "BARBERSHOP",
+      "description": "MACHINE RUNNING, INCL. WASHING",
+      "price":"20"
+    },
+    {
+      "_id":4,
+      "serviceName": "BEARD SHAPER",
+      "description": "BEARD SHAPING, IN WHICH THE BEARD LINES ARE SHAPED PERSONALLY IN THE BEARD GROWTH AREA",
+      "price":"20"
+    },
+    {
+      "_id":5,
+      "serviceName": "THE AMERICAN SHAVING",
+       "description": "SHAVING WITH A KNIFE, INCL. FACE MASSAGE, BATHS",
+      "price":"20"
+
+    },
+    {
+      "_id":6,
+      "serviceName": "FACIAL CLEANSING",
+      "description": "",
+      "price":"20"
+    },
+    {
+      "_id":7,
+      "serviceName": "FACIAL SUGARING",
+       "description": "",
+      "price":"20"
+
+    },
+    {
+      "_id":8,
+      "serviceName": "HAIR DYEING BEGINS",
+      "description": "",
+      "price":"50"
+    },
+    {
+      "_id":9,
+      "serviceName": "EYEBROW COLORING",
+       "description": "",
+      "price":"20"
+
+    },
+    {
+      "_id":10,
+      "serviceName": "BEARD COLORING",
+      "description": "",
+      "price":"20"
+
+    },
+    {
+      "_id":11,
+      "serviceName": "EYELASH TINTING",
+      "description": "",
+      "price":"15"
+
+    }
+
+  ]
+}
