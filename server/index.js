@@ -18,13 +18,28 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     await client.connect();
-    const servicesCollection = client.db('services').collection('service');
+    const servicesCollection =client.db('services').collection('service');
+    const bookingCollection=client.db('services').collection('booking');
     app.get("/service", async function (req, res) {
       const query={};
       const cursor = servicesCollection.find(query);
       const services = await cursor.toArray();
-      res.send(services);
+      return res.send(services);
     });
+    app.post("/booking",async(req, res) => {
+      const addBooking= req.body;
+      const query = {
+        serviceName: addBooking.serviceName,
+        date: addBooking.date,
+        email: addBooking.email
+      };
+      const exists= await bookingCollection.findOne(query);
+      if (exists) {
+        return res.send ({success: false, booking: exists});
+      }
+      const result=await bookingCollection.insertOne(addBooking);
+      return res.send({success: true, result});
+    })
   } catch (error) {}
 }
 run().catch(console.dir);

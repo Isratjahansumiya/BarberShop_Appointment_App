@@ -13,6 +13,10 @@ import Login from './components/Login/Login';
 import Appointment from './components/Appointment/Appointment';
 import Register from './components/Login/Register';
 import RequireAuth from './components/Login/RequireAuth';
+import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function App() {
   return (
@@ -32,6 +36,7 @@ function App() {
           }
         />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }
