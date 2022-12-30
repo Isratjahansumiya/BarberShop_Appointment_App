@@ -26,6 +26,24 @@ async function run() {
       const services = await cursor.toArray();
       return res.send(services);
     });
+    //old query style. Need to use aggregate lookup,pipeline,match, group
+    app.get("/available", async (req, res) => {
+      const date= req.query.date;
+      //get all services
+      const services = await servicesCollection.find().toArray();
+      //get all the booking on current day
+      const query={date: date};
+      const bookings=await bookingCollection.find(query).toArray();
+      //find booking for each service
+      services.forEach(service=>{
+        const serviceBookings= bookings.filter(book=>book.serviceName===service.name);
+        const booked= serviceBookings.map(s=>s.slot);
+        const available= service.slots.filter(slot=>!booked.includes(slot));
+        //set available slots to slots to make it easier
+        service.slots=available;
+      })
+      res.send(services);
+    })
     app.post("/booking",async(req, res) => {
       const addBooking= req.body;
       const query = {

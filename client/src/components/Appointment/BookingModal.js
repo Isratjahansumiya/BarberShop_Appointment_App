@@ -1,5 +1,3 @@
-// @flow strict
-
 import * as React from 'react';
 import { format } from "date-fns";
 import auth from './../../firebase.init';
@@ -31,7 +29,7 @@ function BookingModal({date,booking,setBooking}) {
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data.success===false) {
+            if (data.success) {
               toast(
                 `Your appointment is successfully added,${formattedDate} at ${slot} `
               );
