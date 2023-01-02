@@ -4,7 +4,7 @@ import auth from './../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from "react-toastify";
 
-function BookingModal({date,booking,setBooking}) {
+function BookingModal({date,booking,setBooking,refetch}) {
     const {_id,name,slots}=booking;
     const [user] = useAuthState(auth);
     const formattedDate = format(date,'PP');
@@ -39,6 +39,7 @@ function BookingModal({date,booking,setBooking}) {
                 `You already have an appointment,${data.booking?.date} at ${data.booking?.slot} `
               );
             }
+            refetch();
             setBooking(null);
           });
     }
