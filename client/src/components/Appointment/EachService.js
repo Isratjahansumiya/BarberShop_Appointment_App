@@ -4,7 +4,7 @@ const EachService = ({service,setBooking}) => {
     const {name,slots}=service;
     return (
       <div>
-        <div className="card w-full bg-base-100 shadow-xl my-10">
+        <div className="card w-full shadow-2xl my-10">
           <div className="card-body text-center">
             <h2 className=" text-xl font-bold text-secondary">{name}</h2>
             <p>

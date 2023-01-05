@@ -4,10 +4,10 @@ import trimmingHair from '../../pics/trimmingHair.jpg'
 const Intro = () => {
     return (
       <div>
-        <div className="hero min-screen my-20">
+        <div className="hero min-screen mt-12">
           <div className="hero-content flex-col lg:flex-row">
             <img src={trimmingHair} className="max-w-lg rounded-lg shadow-2xl" alt="" />
-            <div>
+            <div className='px-10'>
               <h1 className="text-5xl font-bold text-secondary">Make A New Hair Style</h1>
               <p className="py-6">
                 Whether you want to get a simple, classic hair cut or you want

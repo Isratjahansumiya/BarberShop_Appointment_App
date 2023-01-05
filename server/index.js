@@ -26,7 +26,7 @@ async function run() {
       const services = await cursor.toArray();
       return res.send(services);
     });
-    //old query style. Need to use aggregate lookup,pipeline,match, group
+    //Not good enough query style. Need to use aggregate lookup,pipeline,match, group
     app.get("/available", async (req, res) => {
       const date= req.query.date;
       //get all services
@@ -44,6 +44,12 @@ async function run() {
       })
       res.send(services);
     })
+    app.get("/booking", async (req, res) => {
+      const email = req.query.email;
+      const query = { email: email };
+      const bookings = await bookingCollection.find(query).toArray();
+      res.send(bookings);
+    });
     app.post("/booking",async(req, res) => {
       const addBooking= req.body;
       const query = {

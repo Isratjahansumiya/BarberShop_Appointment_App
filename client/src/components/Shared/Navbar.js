@@ -9,14 +9,36 @@ function Navbar() {
   const logOut = () => {
     signOut(auth);
   }
-  const navItems=<>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/appointment">Appointment</Link></li>
-      <li><Link to="/About">Review </Link></li>
-      <li><Link to="/About">Contract Us</Link></li>
-      <li><Link to="/about">About</Link></li>
-      <li>{user ? <button className="btn btn-ghost" onClick={logOut}>Log Out</button>: <Link to="/login">Login</Link>}</li>
-    </>;
+  const navItems = (
+    <>
+      <li>
+        <Link to="/appointment">Appointment</Link>
+      </li>
+      <li>
+        <Link to="/About">Review </Link>
+      </li>
+      <li>
+        <Link to="/About">Contract Us</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+      {user && (
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      )}
+      <li>
+        {user ? (
+          <button className="btn btn-ghost" onClick={logOut}>
+            Log Out
+          </button>
+        ) : (
+          <Link to="/login">Login</Link>
+        )}
+      </li>
+    </>
+  );
 
     return (
       <div>
@@ -46,13 +68,38 @@ function Navbar() {
                 {navItems}
               </ul>
             </div>
-            <a className="btn btn-secondary normal-case text-xl font-bold text-white">Barber Shop</a>
+            <Link
+              to="/"
+              className="btn btn-secondary normal-case text-xl font-bold text-white"
+            >
+              Barber Shop
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal p-0">
-              {navItems}
-            </ul>
+            <ul className="menu menu-horizontal p-0">{navItems}</ul>
           </div>
+        </div>
+        <div className="navbar-end">
+          <label
+            tabIndex="1"
+            htmlFor="dashboard-sidebar"
+            className="btn btn-ghost lg:hidden"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </label>
         </div>
       </div>
     );

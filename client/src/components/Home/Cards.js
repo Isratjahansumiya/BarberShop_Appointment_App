@@ -8,7 +8,7 @@ import location from "../../pics/location.png";
 
 const Cards=()=> {
     return (
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-8">
         <InfoCards
           cardTitle="Opening Hours"
           bgClass="bg-gradient-to-r from-secondary to-primary font-bold"

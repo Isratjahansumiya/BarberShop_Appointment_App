@@ -1,5 +1,3 @@
-// @flow strict
-
 import * as React from 'react';
 
 const InfoCards=({img,cardTitle,bgClass})=> {
