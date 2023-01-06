@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
-function MyAppointments(props) {
+function MyAppointments() {
     const [appointments,setAppointments]=useState([]);
     const [user] = useAuthState(auth);
     useEffect(()=>{
@@ -37,11 +37,15 @@ function MyAppointments(props) {
             tabIndex="0"
             className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li onClick={() => onClickValueChange("newest")}>
-              <a>Newest on Top</a>
+            <li>
+              <button onClick={() => onClickValueChange("newest")}>
+                Newest on Top
+              </button>
             </li>
-            <li onClick={() => onClickValueChange("oldest")}>
-              <a>Oldest on Top</a>
+            <li>
+              <button onClick={() => onClickValueChange("oldest")}>
+                Oldest on Top
+              </button>
             </li>
           </ul>
         </div>
@@ -59,7 +63,7 @@ function MyAppointments(props) {
             </thead>
             <tbody>
               {appointments.map((appointment, index) => (
-                <tr>
+                <tr key={appointment._id}>
                   <th>{index + 1}</th>
                   <td>{appointment.name}</td>
                   <td>{appointment.date}</td>
